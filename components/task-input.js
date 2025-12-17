@@ -83,7 +83,7 @@ export default function TaskInput({ onAddTask }) {
             {/* Add Button */}
             <button
                 type="submit"
-                className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors font-medium">
+                className="w-full bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition-colors font-medium">
                 + Add Task
                 </button>
             </form>

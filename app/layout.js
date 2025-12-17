@@ -1,14 +1,20 @@
 import "./globals.css";
+import { MantineProvider } from "@mantine/core";
+import '@mantine/core/styles.css';
 
 export const metadata = {
-    title: "TaskFlow",
-    description: "Manage your tasks efficiently",
+    title: "Doable",
+    description: "Make it doable.",
 };
 
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <MantineProvider>
+                    {children}
+                    </MantineProvider>
+            </body>
         </html>
     );
 }

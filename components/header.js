@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ quote }) {
     return (
         <header className="bg-white/80 backdrop-blur-sm shadow-lg border-b-2 border-purple-100">
             <div className="max-w-5xl mx-auto px-8 py-8">
@@ -17,7 +17,7 @@ export default function Header() {
                             Doable
                         </h1>
                         <p className="text-gray-600 text-lg">
-                            "Make it doable."
+                            {quote}
                         </p>
                     </div>
                 </div>

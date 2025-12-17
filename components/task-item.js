@@ -22,7 +22,7 @@ export default function TaskItem({ task, onDelete, onToggleComplete, onEdit }) {
     };
 
     return (
-        <div className={`bg-white p-4 rounded-lg shadow-sm border-2 ${priorityColors[task.priority]} mb-3`}>
+        <div className={`p-4 rounded-lg shadow-sm border-2 ${priorityColors[task.priority]} mb-3`}>
             <div className="flex items-start justify-between">
                 {/* Left side - Checkbox and Task */}
                     <div className="flex items-start space-x-3 flex-1">

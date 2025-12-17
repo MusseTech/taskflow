@@ -15,6 +15,7 @@ export default function Home() {
     const [currentBadgeLevel, setCurrentBadgeLevel] = useState(0);
     const [categoryFilter, setCategoryFilter] = useState("All");
     const [streak, setStreak] = useState(3);
+    const [quote, setQuote] = useState('"Make it doable."');
 
     const handleEditTask = (taskId, newText) => {
         setTasks(tasks.map(task => 
@@ -39,6 +40,17 @@ export default function Home() {
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }, [tasks]);
+
+    useEffect(() => {
+        fetch("https://api.quotable.io/random?maxLength=120")
+            .then(res => res.json())
+            .then(data => {
+                setQuote(`"${data.content}" — ${data.author}`);
+            })
+            .catch(() => {
+                setQuote('"Make it doable."');
+            });
+    }, []);
 
     const addTask = (newTask) => {
         setTasks([...tasks, newTask]);
@@ -78,7 +90,7 @@ export default function Home() {
 
     return ( 
         <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 50%, #A5D6A7 100%)' }}>
-            <Header />
+            <Header quote={quote} />
             <main className="max-w-5xl mx-auto py-8">
                 {/* Points & Level Display */}
                 <div className="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-lg" style={{ border: '3px solid #9C89B8' }}>
